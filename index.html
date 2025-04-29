@@ -28,7 +28,71 @@
         <link rel="canonical" href="https://github.com/stevec713/stratos">
         <!--[if lt IE 9]><script scr="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![end if]-->
         <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
+        <header>
+            <h1>Stratos</h1>
+            <p>Explore the stratosphere with Stratos! The leading flying car brand in the universe.</p>
+        </header>
+        <main>
+            <section>
+                <h2>Introducing the Stratos One</h2>
+                <img src="images/car-side-1920px.jpg" alt="Stratos One flying car" width="1920" height="1080">
+                <img src="image/car-back-640px" alt="the back of the Stratos One flying car" width="640" height="360">
+                <img src="images/fabric-640px.jpg" alt="hand stitched fabric" width="640" height="360">
+                <p>Our brand new flying car offers</p>
+                <ul>
+                    <li>1 lightyear range</li>
+                    <li>autonomous navigation</li>
+                    <li>Astra, your ai copilot</li>
+                    <li>hand stitched interior</li>
+                    <li>classic exterior</li>
+                </ul>
+                <button>starting at $40,000</button>
+
+                <section>
+                    <h3>Add ons</h3>
+                    <article>
+                        <h4>customizable LED lighting</h4>
+                        <button>$2000</button>
+                    </article>
+                    <article>
+                        <h4>carbon fiber interior</h4>
+                        <button>$5000</button>
+                    </article>
+                </section>
+            </section>
+            <section>
+                <h2>contact</h2>
+                <form>
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" required>
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" required>
+
+                    <label for="pnumber">Phone Number</label>
+                    <input type="number" id="pnumber" name="pnumber" required>
+                    <label for="emaila">Email Address</label>
+                    <input type="email" id="emaila" name="emaila">
+
+                    <label for="comment">Comments</label>
+                    <textarea id="comment" name="comment" required></textarea>
+
+                    <fieldset>
+                        <legend>preferred contact method</legend>
+                        <label for="phone">Phone</label>
+                        <input type="radio" id="phone" name="contact" checked>
+                        <label for="email">Email</label>
+                        <input type="radio" id="email" name="contact">
+                    </fieldset>
+
+                    <input type="submit" name="submit" id="submit">
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p><small>Copyright &copy; 2025 - Stephen Carey</small></p>
+        </footer>
     </body>
 </html>
