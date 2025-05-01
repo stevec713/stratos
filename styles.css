@@ -83,3 +83,84 @@ body {
     line-height: 1.4;
     font-weight: 400;
 }
+
+/* HEADER STYLES */
+header {
+    background: url(images/space-1920px.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    max-height: 1280px;
+    color: var(--lt-font-color);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 3rem;
+    padding:  1rem 1rem 0 0;
+    align-self: flex-end;
+}
+
+header p {
+    padding: 1rem;
+    line-height: 1.4;
+    max-width: 95%;
+    font-size: 1.4rem;
+}
+
+/* MAIN STYLES */
+h2 {
+    font-size: 1.8rem;
+    padding: 1rem;
+}
+
+img {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    padding-bottom: .5rem;
+}
+
+section > div {
+    /* display: flex;
+    flex-direction: row;
+    overflow-x: scroll; */
+    display: grid;
+    grid-template-columns: 90% 90% 90%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 1rem;
+}
+
+section > p {
+    font-weight: 500;
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+ul {
+    list-style-type: "\027A4";
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+}
+
+li {
+    padding: .1rem 1rem;
+}
+
+/* SHOP FORM STYLES */
+h3 {
+    font-size: 1.8rem;
+    padding: 1rem;
+}
+
+button {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+}
