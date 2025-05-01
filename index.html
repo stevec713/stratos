@@ -43,8 +43,8 @@
             <section>
                 <h2>Introducing the Stratos One</h2>
                 <img src="images/car-side-1920px.jpg" alt="Stratos One flying car" width="1920" height="1080">
-                <img src="image/car-back-640px" alt="the back of the Stratos One flying car" width="640" height="360">
-                <img src="images/fabric-640px.jpg" alt="hand stitched fabric" width="640" height="360">
+                <img src="images/car-back-640px.jpg" alt="the back of the Stratos One flying car" width="640" height="360">
+                <img src="images/fabric-640px.jpg" alt="hand stitched fabric of the Stratos One interior" width="640" height="360">
                 <p>Our brand new flying car offers</p>
                 <ul>
                     <li>1 lightyear range</li>
@@ -53,23 +53,65 @@
                     <li>hand stitched interior</li>
                     <li>classic exterior</li>
                 </ul>
-                <button>starting at $40,000</button>
+                <form action="" method="POST">
+                    <h3>Purchase the Stratos One today</h3>
+                    <button name="car" value="40000">starting at $40,000</button>
 
-                <section>
                     <h3>Add ons</h3>
+                    <p><small>Available with the purchase of a Stratos One</small></p>
                     <article>
                         <h4>customizable LED lighting</h4>
-                        <button>$2000</button>
+                        <p>Light up the interior and bottom of your car with any color</p>
+                        <p>$2,000</p>
+                        <label for="led">Add LED lighting</label>
+                        <input type="checkbox" id="led" name="led" value="2000">
                     </article>
                     <article>
                         <h4>carbon fiber interior</h4>
-                        <button>$5000</button>
+                        <p>Cover the interior of your car with strong and lightweight carbon fiber</p>
+                        <p>$5,000</p>
+                        <label for="carbon">Add carbon fiber</label>
+                        <input type="checkbox" id="carbon" name="carbon" value="5000">
                     </article>
-                </section>
+                    <article>
+                        <h4>rocket boost</h4>
+                        <p>reach unimaginable speeds with a 100 million horsepower rocket</p>
+                        <p>$20,000</p>
+                        <label for="rocket">Add rocket boost</label>
+                        <input type="checkbox" id="rocket" name="rocket" value="20000">
+                    </article>
+                    <article>
+                        <h4>choose your color</h4>
+                        <p>pick from over 16 million color options. Or keep the default color for free</p>
+                        <p>$3,000</p>
+                        <input type="checkbox" id="addcolor" name="addcolor" value="3000">
+                        <label for="addcolor">Add an optional color</label>
+                        <input type="color" id="color" name="color">
+                    </article>
+
+                    <article>
+                        <h4>Your Cart</h4>
+                        <p>Your cart is empty</p>
+                        <dl>
+                            <dt>Sub-Total:</dt>
+                            <dd>$0.00</dd>
+
+                            <dt>Tax Rate:</dt>
+                            <dd>7%</dd>
+
+                            <dt>Shipping:</dt>
+                            <dd>$10.00</dd>
+
+                            <dt>Total:</dt>
+                            <dd>$0.00</dd>
+                        </dl>
+                        <input type="submit" name="asubmit" id="asubmit">
+                    </article>
+                </form>
             </section>
             <section>
                 <h2>contact</h2>
-                <form>
+                <form action="" method="POST">
                     <label for="fname">First Name</label>
                     <input type="text" id="fname" name="fname" required>
                     <label for="lname">Last Name</label>
@@ -91,7 +133,7 @@
                         <input type="radio" id="email" name="contact" value="email">
                     </fieldset>
 
-                    <input type="submit" name="submit" id="submit">
+                    <input type="submit" name="csubmit" id="csubmit">
                 </form>
             </section>
         </main>
