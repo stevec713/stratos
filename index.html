@@ -39,7 +39,7 @@
             <h1>Stratos</h1>
             <p>Explore the stratosphere with Stratos! The leading flying car brand in the universe.</p>
         </header>
-        <main>
+        <main class="dark">
             <section>
                 <h2>Introducing the Stratos One</h2>
                 <div>
@@ -57,48 +57,48 @@
                 </ul>
                 <form action="" method="POST">
                     <h3>Purchase the Stratos One today</h3>
-                    <button name="car" value="40000">starting at $40,000</button>
+                    <button class="light" name="car" value="40000">starting at $40,000</button>
 
                     <h3>Add ons</h3>
                     <p><small>Available with the purchase of a Stratos One</small></p>
                     <div>
-                    <article>
+                    <article class="light">
                         <img src="images/led-lights-640px.jpg" alt="LED lights that are used on the inside and bottom of the car" width="640" height="360">
                         <h4>custom LED lighting</h4>
                         <p>Light up the interior and bottom of your car with any color</p>
                         <div>
                         <p>$2,000</p>
                         <input type="checkbox" id="led" name="led" value="2000">
-                        <label for="led">Add LED lighting</label>
+                        <label class="dark" for="led">Add LED lighting</label>
                         </div>
                     </article>
-                    <article>
+                    <article class="light">
                         <img src="images/carbon-fiber-640px.jpg" alt="carbon fiber material used for the interior of the Stratos One" width="640" height="360">
                         <h4>carbon fiber interior</h4>
                         <p>Cover the interior of your car with strong and lightweight carbon fiber</p>
                         <div>
                         <p>$5,000</p>
                         <input type="checkbox" id="carbon" name="carbon" value="5000">
-                        <label for="carbon">Add carbon fiber</label>
+                        <label class="dark" for="carbon">Add carbon fiber</label>
                         </div>
                     </article>
-                    <article>
+                    <article class="light">
                         <img src="images/rocket-engine-640px.jpg" alt="rocket engine used for the Stratos One" width="640" height="360">
                         <h4>rocket boost</h4>
                         <p>reach unimaginable speeds with a 100 million horsepower rocket</p>
                         <div>
                         <p>$20,000</p>
                         <input type="checkbox" id="rocket" name="rocket" value="20000">
-                        <label for="rocket">Add rocket boost</label>
+                        <label class="dark" for="rocket">Add rocket boost</label>
                         </div>
                     </article>
-                    <article>
+                    <article class="light">
                         <h4>choose your color</h4>
                         <p>pick from over 16 million color options. Or keep the default color for free</p>
                         <input type="color" id="color" name="color">
                         <div>
                         <p>$3,000</p>
-                        <label for="addcolor">Add optional color</label>
+                        <label class="dark" for="addcolor">Add optional color</label>
                         <input type="checkbox" id="addcolor" name="addcolor" value="3000">
                         </div>
                     </article>
@@ -120,25 +120,25 @@
                             <dt>Total:</dt>
                             <dd>$0.00</dd>
                         </dl>
-                        <input type="submit" name="asubmit" id="asubmit">
+                        <input class="light" type="submit" name="asubmit" id="asubmit" value="Purchase">
                     </article>
                 </form>
             </section>
-            <section>
-                <h2>contact</h2>
+            <section id="contact">
+                <h2>contact us</h2>
                 <form action="" method="POST">
                     <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="fname" required>
+                    <input class="light" type="text" id="fname" name="fname" required>
                     <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lname" required>
+                    <input class="light" type="text" id="lname" name="lname" required>
 
                     <label for="pnumber">Phone Number</label>
-                    <input type="number" id="pnumber" name="pnumber" required>
+                    <input class="light" type="number" id="pnumber" name="pnumber" placeholder="123-456-7890" required>
                     <label for="emaila">Email Address</label>
-                    <input type="email" id="emaila" name="emaila">
+                    <input class="light" type="email" id="emaila" name="emaila" placeholder="name@example.com">
 
                     <label for="comment">Comments</label>
-                    <textarea id="comment" name="comment" required></textarea>
+                    <textarea class="light" id="comment" name="comment" required></textarea>
 
                     <fieldset>
                         <legend>preferred contact method</legend>
@@ -148,11 +148,11 @@
                         <input type="radio" id="email" name="contact" value="email">
                     </fieldset>
 
-                    <input type="submit" name="csubmit" id="csubmit">
+                    <input class="light" type="submit" name="csubmit" id="csubmit">
                 </form>
             </section>
         </main>
-        <footer>
+        <footer class="dark">
             <p><small>Copyright &copy; 2025 - Stephen Carey</small></p>
         </footer>
     </body>

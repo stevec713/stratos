@@ -97,6 +97,10 @@ header {
     justify-content: space-between;
 }
 
+main {
+    padding-bottom: 1rem;
+}
+
 h1 {
     font-size: 3rem;
     padding:  1rem 1rem 0 0;
@@ -229,4 +233,129 @@ input[type="color"] {
     height: 6rem;
     width: 100%;
     margin: .5rem 0;
+}
+
+form > article {
+    padding: 1rem;
+}
+
+dd, dl {
+    width:fit-content;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    row-gap: .5rem;
+}
+
+dd:last-of-type, dt:last-of-type {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    border: none;
+}
+
+form:last-of-type {
+    padding: 0 1rem;
+}
+
+#contact label, #contact input, #contact textarea {
+    display: block;
+    width: 100%
+}
+
+#contact label {
+    padding: 1rem 0 .5rem 0;
+}
+
+#contact input, textarea {
+    padding: 1rem;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: fit-content;
+}
+
+legend {
+    grid-column: -1 / 1;
+    padding: 1rem 0;
+}
+
+fieldset label {
+    display: block;
+    width: fit-content;
+}
+
+input[type="radio"] {
+    width:4rem;
+    accent-color: var(--dk-font-color);
+}
+
+footer {
+    padding: 1rem;
+}
+
+footer p {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* INPUT STYLES */
+input, button, textarea {
+    box-shadow: 0px 0px 3px 0px #000000;
+    transition: box-shadow 0.4s ease;
+}
+
+article div label {
+    box-shadow: 0px 0px 3px 0px #000000;
+    transition: box-shadow 0.4s ease;
+}
+
+input[type="radio"] {
+    box-shadow: none;
+}
+
+
+/* HOVER STYLES */
+input[type="radio"]:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, button {
+    cursor: pointer;
+}
+
+article div label:hover {
+    box-shadow: 0px 0px 8px 2px #000000;
+    cursor: pointer;
+}
+
+input:hover, button:hover, textarea:hover {
+    box-shadow: 0px 0px 8px 2px #000000;
+}
+
+/* FOCUS STYLES */
+:focus {
+
+}
+
+:active {
+
 }
