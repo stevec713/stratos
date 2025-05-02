@@ -163,4 +163,70 @@ button {
     width: 80%;
     margin: 0 auto;
     padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+form > p {
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.2;
+    padding: 0 1rem 1rem 1rem;
+}
+
+form > p:before {
+    content: "* ";
+}
+
+form > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+div > article {
+    padding: 1rem;
+    background-color: var(--dk-background-color);
+    border-radius: 10px;
+}
+
+h4 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+article > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div > p {
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+input[type="checkbox"] {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+div > label {
+    padding: .5rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+
+input[type="color"] {
+    height: 6rem;
+    width: 100%;
+    margin: .5rem 0;
 }
