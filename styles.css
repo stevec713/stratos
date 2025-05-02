@@ -129,10 +129,8 @@ img {
     padding-bottom: .5rem;
 }
 
+/* IMAGE CAROUSEL */
 section > div {
-    /* display: flex;
-    flex-direction: row;
-    overflow-x: scroll; */
     display: grid;
     grid-template-columns: 90% 90% 90%;
     overflow-x: scroll;
@@ -265,6 +263,7 @@ input[type="submit"] {
     border: none;
 }
 
+/* CONTACT FORM STYLES */
 form:last-of-type {
     padding: 0 1rem;
 }
@@ -307,6 +306,7 @@ input[type="radio"] {
     accent-color: var(--dk-font-color);
 }
 
+/* FOOTER STYLES */
 footer {
     padding: 1rem;
 }
@@ -318,12 +318,12 @@ footer p {
 
 /* INPUT STYLES */
 input, button, textarea {
-    box-shadow: 0px 0px 3px 0px #000000;
+    box-shadow: 0px 0px 5px 0px #000000;
     transition: box-shadow 0.4s ease;
 }
 
 article div label {
-    box-shadow: 0px 0px 3px 0px #000000;
+    box-shadow: 0px 0px 5px 0px #000000;
     transition: box-shadow 0.4s ease;
 }
 
@@ -352,10 +352,17 @@ input:hover, button:hover, textarea:hover {
 }
 
 /* FOCUS STYLES */
-:focus {
-
+input:focus, article input:focus ~ label, button:focus, textarea:focus {
+    outline: 4px solid rgb(23, 0, 62);
 }
 
-:active {
-
+/* ACTIVE STYLES */
+input:active, article input:active ~ label, button:active, textarea:active {
+    box-shadow: 0px 0px 8px 2px #000000 inset;
 }
+
+input[type="radio"]:active {
+    box-shadow: none;
+}
+
+/* MEDIA QUERIES */
