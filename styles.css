@@ -126,7 +126,6 @@ img {
     height: auto;
     scroll-snap-align: center;
     scroll-snap-stop: always;
-    padding-bottom: .5rem;
 }
 
 /* IMAGE CAROUSEL */
@@ -136,6 +135,7 @@ section > div {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     margin-bottom: 1rem;
+    scrollbar-width: thin;
 }
 
 section > p {
