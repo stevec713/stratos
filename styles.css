@@ -421,6 +421,10 @@ input[type="radio"]:active {
         grid-template-columns: 60% 40%;
     }
 
+    #car form > p:first-of-type {
+        padding-top: 2rem;
+    }
+
     button, .title {
         grid-column: 1 / -1;
     }
