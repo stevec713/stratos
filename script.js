@@ -46,22 +46,24 @@ function toggleDarkMode() {
 function validateName(nameInput, isFirst) {
     if (nameInput.length < 2 || /[0-9]/.test(nameInput)) {
         if(isFirst) {
-            output += "First name must be at least 2 characters long and cannot contain numbers.\n";
+            document.getElementById("firstname").innerHTML = "First name must be at least 2 characters long and cannot contain numbers.";
             fNameIsValid = false;
             fname.classList.add("error");
             fname.classList.remove("valid");
         } else {
-            output += "Last name must be at least 2 characters long and cannot contain numbers.\n";
+            document.getElementById("lastname").innerHTML = "Last name must be at least 2 characters long and cannot contain numbers.";
             lNameIsValid = false;
             lname.classList.add("error");
             lname.classList.remove("valid");
         }
     } else {
         if(isFirst) {
+            document.getElementById("firstname").innerHTML = "";
             fNameIsValid = true;
             fname.classList.remove("error");
             fname.classList.add("valid");
         } else {
+            document.getElementById("lastname").innerHTML = "";
             lNameIsValid = true;
             lname.classList.remove("error");
             lname.classList.add("valid");
@@ -71,32 +73,108 @@ function validateName(nameInput, isFirst) {
 
 function validatePhone() {
     if(/^\d\d\d[\s-]?\d\d\d[\s-]?\d\d\d\d$/.test(phone.value)) {
+        document.getElementById("phonenumber").innerHTML = "";
         phoneIsValid = true;
         phone.classList.remove("error");
         phone.classList.add("valid");
     } else {
+        document.getElementById("phonenumber").innerHTML = "Phone number is invalid. Follow this format: xxx xxx xxxx";
         phoneIsValid = false;
         phone.classList.add("error");
         phone.classList.remove("valid");
-        output += "Phone number is invalid.\n";
+    }
+
+    if (!phoneIsChecked && phone.value.length === 0) {
+        phone.classList.remove("error");
+        document.getElementById("phonenumber").innerHTML = "";
     }
 }
 
 function validateEmail() {
     if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(email.value)) {
+        document.getElementById("emailaddress").innerHTML = "";
         emailIsValid = true;
         email.classList.remove("error");
         email.classList.add("valid");
     } else {
+        document.getElementById("emailaddress").innerHTML = "Email is invalid.";
         emailIsValid = false;
         email.classList.add("error");
         email.classList.remove("valid");
-        output += "Email is invalid.\n";
+    }
+
+    if (!emailIsChecked && email.value.length === 0) {
+        email.classList.remove("error");
+        document.getElementById("emailaddress").innerHTML = "";
     }
 }
 
+function validateChoice() {
+    if (this.value === "phone") {
+        phoneIsChecked = true;
+        emailIsChecked = false;
 
-let output="";
+        if (email.value.length === 0) {
+            email.classList.remove("error");
+            document.getElementById("emailaddress").innerHTML = "";
+        }
+    }
+    if (this.value === "email") {
+        emailIsChecked = true;
+        phoneIsChecked = false;
+
+        if (phone.value.length === 0) {
+            phone.classList.remove("error");
+            document.getElementById("phonenumber").innerHTML = "";
+        }
+    }
+}
+
+function validateComment() {
+    if (comment.value.length < 5) {
+        document.getElementById("commentinfo").innerHTML = "Comment must be at least 5 characters long.";
+        comment.classList.add("error");
+        comment.classList.remove("valid");
+        commentIsValid = false;
+    } else {
+        document.getElementById("commentinfo").innerHTML = "";
+        comment.classList.remove("error");
+        comment.classList.add("valid");
+        commentIsValid = true;
+    }
+}
+
+function validateForm(e) {
+   if ((phoneIsChecked && phoneIsValid || emailIsChecked && emailIsValid) && fNameIsValid && lNameIsValid && commentIsValid) {
+        alert("Form is valid. Thank you for your submission!");
+        phone.classList.remove("error");
+
+    }
+    else {
+        e.preventDefault();
+        if (phoneIsChecked && !phoneIsValid) {
+            phone.classList.add("error");
+            document.getElementById("phonenumber").innerHTML = "Please enter a valid phone number or change your preferred method of contact";
+        }
+        if (emailIsChecked && !emailIsValid) {
+            email.classList.add("error");
+            document.getElementById("emailaddress").innerHTML = "Please enter a valid email or change your preferred method of contact";
+        }
+        if (!fNameIsValid) {
+            fname.classList.add("error");
+            document.getElementById("firstname").innerHTML = "Please enter a valid first name";
+        }
+        if (!lNameIsValid) {
+            lname.classList.add("error");
+            document.getElementById("lastname").innerHTML = "Please enter a valid last name";
+        }
+        if (!commentIsValid) {
+            comment.classList.add("error");
+            document.getElementById("commentinfo").innerHTML = "Please enter a valid comment";
+        }
+    }
+}
+
 // toggle night mode
 let nightToggle = document.getElementById("night");
 nightToggle.addEventListener("click", toggleDarkMode);
@@ -111,14 +189,32 @@ fname.addEventListener("input", function() { validateName(fname.value, true)});
 let lname = document.getElementById("lname");
 lname.addEventListener("input", function() { validateName(lname.value, false)});
 
-//validate phone number 
-// if () {
+//validate radio
+let phoneIsChecked = document.getElementById("phone").checked;
+let emailIsChecked = document.getElementById("email").checked;
+let radioChoice = document.querySelectorAll('input[name="contact"]');
+for (let choice of radioChoice) {
+    choice.addEventListener("change", validateChoice);
+}
+
+
 let phoneIsValid = false;
+let emailIsValid = false;
+//validate phone number 
 let phone = document.getElementById("pnumber");
 phone.addEventListener("input", validatePhone);
-// } else {
-    //validate email
-let emailIsValid = false;
+
+//validate email
 let email = document.getElementById("emaila");
 email.addEventListener("input", validateEmail);
-// }
+
+//validate comment
+let commentIsValid = false;
+let comment = document.getElementById("comment");
+comment.addEventListener("input", validateComment);
+
+
+
+//Validate form on submit
+let contactForm = document.getElementById("contactform");
+contactForm.addEventListener("submit", validateForm);

@@ -135,22 +135,22 @@
             </section>
             <section id="contact">
                 <h2>contact us</h2>
-                <form action="google.com" method="POST" autocomplete>
-                    <label for="fname">First Name</label>
+                <form action="google.com" method="POST" autocomplete id="contactform">
+                    <label for="fname">First Name <span id="firstname" class="errorText"></span></label>
                     <input class="light" type="text" id="fname" name="fname">
-                    <label for="lname">Last Name</label>
+                    <label for="lname">Last Name <span id="lastname" class="errorText"></span></label>
                     <input class="light" type="text" id="lname" name="lname">
 
-                    <label for="pnumber">Phone Number</label>
+                    <label for="pnumber">Phone Number <span id="phonenumber" class="errorText"></span></label>
                     <input class="light" type="tel" id="pnumber" name="pnumber" placeholder="123-456-7890">
-                    <label for="emaila">Email Address</label>
+                    <label for="emaila">Email Address <span id="emailaddress" class="errorText"></span></label>
                     <input class="light" type="email" id="emaila" name="emaila" placeholder="name@example.com">
 
-                    <label for="comment">Comments</label>
+                    <label for="comment">Comments <span id="commentinfo" class="errorText"></span></label>
                     <textarea class="light" id="comment" name="comment"></textarea>
 
                     <fieldset>
-                        <legend>preferred contact method</legend>
+                        <legend>preferred contact method <span id="contacterror" class="errorText"></span></legend>
                         <label for="phone">Phone</label>
                         <input type="radio" id="phone" name="contact" value="phone" checked>
                         <label for="email">Email</label>

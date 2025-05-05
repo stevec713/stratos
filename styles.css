@@ -86,6 +86,12 @@ table {
     background-color: rgb(155, 248, 155);
 }
 
+.errorText {
+    color: rgb(178, 1, 1);
+    background-color: var(--error-color);
+    display: block;
+}
+
 h1,h2,h3 {
     font-family: var(--heading-font);
 }
