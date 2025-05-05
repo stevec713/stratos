@@ -144,11 +144,43 @@ function validateComment() {
     }
 }
 
+function createObject() {
+    let userInfo = {
+        firstName: fname.value,
+        lastName: lname.value,
+        phoneNumber: phone.value,
+        emailAddress: email.value,
+        phonePreferred: phoneIsChecked,
+        comment: comment.value
+    };
+
+    console.log(userInfo);
+    return userInfo;
+}
+
 function validateForm(e) {
    if ((phoneIsChecked && phoneIsValid || emailIsChecked && emailIsValid) && fNameIsValid && lNameIsValid && commentIsValid) {
-        alert("Form is valid. Thank you for your submission!");
+        let userInfo = createObject();
+        alert("Form is valid. Thank you for your submission!\nHere is your information:\nFirst Name: " + userInfo["firstName"] + "\nLast Name: " + userInfo["lastName"] + "\nPhone Number: " + userInfo["phoneNumber"] + "\nEmail Address: " + userInfo["emailAddress"] + "\nPhone is your Preferred Method: " + userInfo["phonePreferred"] + "\nComment: " + userInfo["comment"]);
         phone.classList.remove("error");
+        email.classList.remove("error");
+        fname.classList.remove("error");
+        lname.classList.remove("error");
+        comment.classList.remove("error");
 
+        fNameIsValid = false;
+        lNameIsValid = false;
+        phoneIsValid = false;
+        emailIsValid = false;
+        commentIsValid = false;
+        phoneIsChecked = document.getElementById("phone").checked;
+        emailIsChecked = document.getElementById("email").checked;
+
+        fname.value = "";
+        lname.value = "";
+        phone.value = "";
+        email.value = "";
+        comment.value = "";
     }
     else {
         e.preventDefault();
@@ -212,7 +244,6 @@ email.addEventListener("input", validateEmail);
 let commentIsValid = false;
 let comment = document.getElementById("comment");
 comment.addEventListener("input", validateComment);
-
 
 
 //Validate form on submit
