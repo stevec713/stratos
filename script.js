@@ -245,7 +245,76 @@ let commentIsValid = false;
 let comment = document.getElementById("comment");
 comment.addEventListener("input", validateComment);
 
-
 //Validate form on submit
 let contactForm = document.getElementById("contactform");
 contactForm.addEventListener("submit", validateForm);
+
+
+
+
+
+// Shopping Cart
+function toggleShoppingCart() {
+    if (!carSelected) {
+        carSelected = true;
+        itemList["Stratos One"] = parseFloat(car.value);
+    } else {
+        itemList = {};
+        carSelected = false;
+        output = "Your cart is empty";
+    }
+    calculatePrices();
+}
+
+function changeAddOn() {
+    if(carSelected) {
+        let article = this.closest("article");
+        let itemName = article.querySelector("h4").textContent;
+        if (this.checked) {
+            itemList[itemName] = parseFloat(this.value);
+        } else {
+            delete itemList[itemName];
+        }
+        calculatePrices();
+    }
+    else {
+        alert("Please select a car first.");
+
+    }
+}
+
+function calculatePrices() {
+    let subtotalElement = document.querySelector("dd:first-of-type");
+    let taxElement = document.querySelector("dd:nth-of-type(2)");
+    let shippingElement = document.querySelector("dd:nth-of-type(3)");
+    let totalElement = document.querySelector("dd:last-of-type");
+
+    subtotal = 0;
+    for (let item in itemList) {
+        subtotal += itemList[item];
+    }
+    subtotalElement.innerHTML = "$" + subtotal;
+    taxElement.innerHTML = (tax * 100) + "%";
+    shippingElement.innerHTML = "$" + shipping;
+    totalElement.innerHTML = "$" + (subtotal + (subtotal * tax) + shipping);
+}
+
+//Cost Calculator
+let subtotal = 0;
+let tax = .07;
+let shipping = 10;
+let total = 0;
+
+let itemList = {};
+let carSelected = false;
+let output = "";
+
+//add car and allow add-ons
+let car = document.querySelector('button[name="car"]');
+car.addEventListener("click", toggleShoppingCart);
+
+let addOns = document.querySelectorAll('#purchase input[type="checkbox"]'); 
+for (let addOn of addOns) {
+    addOn.addEventListener("change", changeAddOn);
+}
+
