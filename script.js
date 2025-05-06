@@ -258,10 +258,20 @@ function toggleShoppingCart() {
     if (!carSelected) {
         carSelected = true;
         itemList["Stratos One"] = parseFloat(car.value);
+        displayAddons();
     } else {
         itemList = {};
         carSelected = false;
         output = "Your cart is empty";
+        document.querySelector("#cart p").innerHTML = output;
+
+        //change labels back to add
+        let addOns = document.querySelectorAll('#purchase input[type="checkbox"]');
+        for (let addOn of addOns) {
+            let article = addOn.closest("article");
+            let label = article.querySelector('label[for="' + addOn.id + '"]');
+            label.textContent = label.textContent.replace(/^Remove/i, "Add");
+        }
     }
     calculatePrices();
 }
@@ -270,12 +280,20 @@ function changeAddOn() {
     if(carSelected) {
         let article = this.closest("article");
         let itemName = article.querySelector("h4").textContent;
+        let label = article.querySelector('label[for="' + this.id + '"]');
         if (this.checked) {
-            itemList[itemName] = parseFloat(this.value);
+            if(this.name === "addcolor") {
+                itemList[itemName] = {price: parseFloat(this.value), color: document.getElementById("color").value};
+            } else {
+                itemList[itemName] = parseFloat(this.value);
+            }
+            label.textContent = label.textContent.replace(/^Add/i, "Remove")
         } else {
             delete itemList[itemName];
+            label.textContent = label.textContent.replace(/^Remove/i, "Add");
         }
         calculatePrices();
+        displayAddons();
     }
     else {
         alert("Please select a car first.");
@@ -290,13 +308,31 @@ function calculatePrices() {
     let totalElement = document.querySelector("dd:last-of-type");
 
     subtotal = 0;
+    total = 0;
     for (let item in itemList) {
-        subtotal += itemList[item];
+        if(itemList[item].color) {
+            subtotal += itemList[item].price;
+        } else {
+            subtotal += itemList[item];
+        }
     }
-    subtotalElement.innerHTML = "$" + subtotal;
-    taxElement.innerHTML = (tax * 100) + "%";
-    shippingElement.innerHTML = "$" + shipping;
-    totalElement.innerHTML = "$" + (subtotal + (subtotal * tax) + shipping);
+    total = subtotal + (subtotal * tax) + shipping;
+    subtotalElement.innerHTML = "$" + subtotal.toFixed(2);
+    taxElement.innerHTML = (tax * 100).toFixed(2) + "%";
+    shippingElement.innerHTML = "$" + shipping.toFixed(2);
+    totalElement.innerHTML = "$" + total.toFixed(2);
+}
+
+function displayAddons() {
+    let output = "";
+    for (let item in itemList) {
+        if (itemList[item].color) {
+            output += item + ": $" + itemList[item].price.toFixed(2) + '<br>Color: <span style="display:inline-block; width: 20px; height: 20px; background-color: '+ itemList[item].color + '"></span><br>';
+        } else {
+            output += item + ": $" + itemList[item].toFixed(2) + "<br>"
+        }
+    }
+    document.querySelector("#cart p").innerHTML = output;
 }
 
 //Cost Calculator
@@ -318,3 +354,13 @@ for (let addOn of addOns) {
     addOn.addEventListener("change", changeAddOn);
 }
 
+//Checkout
+let change  = document.getElementById("purchase");
+change.addEventListener("submit", function(e) {
+    if(Object.keys(itemList).length > 0) {
+        alert("Thank you for your purchase!\nTotal: $" + total.toFixed(2));
+    } else {
+        e.preventDefault();
+        alert("Please select a car and add-ons before checking out.");
+    }
+});
